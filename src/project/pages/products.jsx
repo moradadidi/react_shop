@@ -53,7 +53,7 @@ export default function Home() {
     debouncedSearchTerm();
   }, [debouncedSearchTerm]);
 
-  const addToCart = (productId) => {
+  const addToCart = useCallback((productId) => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const existingProductIndex = existingCart.findIndex(
@@ -80,7 +80,7 @@ export default function Home() {
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       toast.success("Product added to cart successfully!");
     }
-  };
+  }, [filteredProducts]);
 
   const displayProducts = useCallback(() => {
     return filteredProducts
@@ -88,7 +88,7 @@ export default function Home() {
         !["Hyperlastic JBL", "Bombacat JBL", "New Product", "string", "Classic Reed Pullover Hoodie"].includes(product.title)
       )
       .map((product) => {
-        const productRating = product.rating?.rate || Math.random() * (5 - 3) + 3 // Generate random rating if not available
+        const productRating = product.rating?.rate || Math.random() * (5 - 3) + 3;
   
         return (
           <div
@@ -144,62 +144,59 @@ export default function Home() {
           </div>
         );
       });
-  }, [filteredProducts]);
-  
-  
+  }, [filteredProducts, addToCart]);
 
   return (
-    <div className="px-8  bg-gray-100">
+    <div className="px-8 bg-gray-100">
       <ToastContainer />
       {/* Search Input */}
       <div className="py-4 px-5 sticky top-20 bg-purple-500 text-white mb-4">
-  <input
-    type="text"
-    placeholder="Search products..."
-    className="w-1/3 p-2 border border-gray-300 rounded-lg text-black"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    aria-label="Search products"
-  />
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="w-1/3 p-2 border border-gray-300 rounded-lg text-black"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          aria-label="Search products"
+        />
 
-  <button
-    className="px-6 cursor-pointer hover:underline"
-    onClick={() => categoryFilter("")}
-  >
-    All
-  </button>
-  <button
-    className="px-9 cursor-pointer hover:underline"
-    onClick={() => categoryFilter("clothes")}
-  >
-    Clothes
-  </button>
-  <button
-    className="px-9 cursor-pointer hover:underline"
-    onClick={() => categoryFilter("electronics")}
-  >
-    Electronics
-  </button>
-  <button
-    className="px-9 cursor-pointer hover:underline"
-    onClick={() => categoryFilter("furniture")}
-  >
-    Furniture
-  </button>
-  <button
-    className="px-9 cursor-pointer hover:underline"
-    onClick={() => categoryFilter("shoes")}
-  >
-    Shoes
-  </button>
-  <button
-    className="px-9 cursor-pointer hover:underline"
-    onClick={() => categoryFilter("miscellaneous")}
-  >
-    Miscellaneous
-  </button>
-</div>
-
+        <button
+          className="px-6 cursor-pointer hover:underline"
+          onClick={() => categoryFilter("")}
+        >
+          All
+        </button>
+        <button
+          className="px-9 cursor-pointer hover:underline"
+          onClick={() => categoryFilter("clothes")}
+        >
+          Clothes
+        </button>
+        <button
+          className="px-9 cursor-pointer hover:underline"
+          onClick={() => categoryFilter("electronics")}
+        >
+          Electronics
+        </button>
+        <button
+          className="px-9 cursor-pointer hover:underline"
+          onClick={() => categoryFilter("furniture")}
+        >
+          Furniture
+        </button>
+        <button
+          className="px-9 cursor-pointer hover:underline"
+          onClick={() => categoryFilter("shoes")}
+        >
+          Shoes
+        </button>
+        <button
+          className="px-9 cursor-pointer hover:underline"
+          onClick={() => categoryFilter("miscellaneous")}
+        >
+          Miscellaneous
+        </button>
+      </div>
 
       {error && <div className="p-4 text-red-600">{error}</div>}
 
@@ -207,7 +204,7 @@ export default function Home() {
         {displayProducts()}
       </div>
       <div className="footer">
-        {<Footer />}
+        <Footer />
       </div>
     </div>
   );
