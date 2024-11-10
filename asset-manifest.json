@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react_shop/static/css/main.5c74a6d3.css",
+    "main.js": "/react_shop/static/js/main.37352638.js",
+    "static/js/453.59bb3b6d.chunk.js": "/react_shop/static/js/453.59bb3b6d.chunk.js",
+    "static/media/fa-solid-900.ttf": "/react_shop/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/fa-brands-400.ttf": "/react_shop/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/fa-solid-900.woff2": "/react_shop/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/shop.jpg": "/react_shop/static/media/shop.2e2b2f8283f63f99bfc2.jpg",
+    "static/media/fa-brands-400.woff2": "/react_shop/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
+    "static/media/fa-regular-400.ttf": "/react_shop/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/fa-regular-400.woff2": "/react_shop/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/fa-v4compatibility.ttf": "/react_shop/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
+    "static/media/fa-v4compatibility.woff2": "/react_shop/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
+    "index.html": "/react_shop/index.html",
+    "main.5c74a6d3.css.map": "/react_shop/static/css/main.5c74a6d3.css.map",
+    "main.37352638.js.map": "/react_shop/static/js/main.37352638.js.map",
+    "453.59bb3b6d.chunk.js.map": "/react_shop/static/js/453.59bb3b6d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c74a6d3.css",
+    "static/js/main.37352638.js"
+  ]
+}
